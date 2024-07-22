@@ -45,7 +45,7 @@
 (deflayer extra
   esc
   lp   1         2         3         4         5         6         7         8         9         0         -      =      bspc
-  tab  esc       grv       @tilda    tab       @btab     y         u         @pip      \         bspc      [      ]      ret
+  tab  esc       grv       @tilda    tab       @btab     lp        u         @pip      \         bspc      [      ]      ret
   caps lalt      lmet      lctl      lsft      g         left      down      up        right     ret       '      \
   lsft grv       @t_z1     x         c         v         b         n         m         ,         .         /      rsft                    up
   fn   lctl lalt      lmet                          @space_layer                                 rmet      ralt   cmp    rctl       left down rght
