@@ -1,0 +1,57 @@
+(defcfg
+  input (iokit-name "Bluetooth 3.0 Keyboard")
+  output (kext)
+)
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret            
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft       up
+  lctl fn   lalt           spc            ralt rmet cmp  rctl left down right
+)
+
+(defalias
+    alt_a (tap-hold-next-release 250 a lalt)
+    met_s (tap-hold-next-release 250 s lmet)
+    ctl_d (tap-hold-next-release 250 d lctl)
+    sft_f (tap-hold-next-release 250 f lsft)
+
+    sft_j (tap-hold-next-release 250 j rsft)
+    ctl_k (tap-hold-next-release 250 k rctl)
+    met_l (tap-hold-next-release 250 l rmet)
+    alt_; (tap-hold-next-release 250 ; lalt)
+
+    space_layer (tap-hold-next-release 250 spc (around (tap-macro-release (layer-rem numbers)) (layer-toggle extra)))
+    t_z1 (layer-add numbers)
+    t_z2 (layer-rem numbers)
+    clear (around (layer-rem extra) (layer-rem numbers))
+    tilda (around lsft grv)
+    btab (around lsft tab)
+    pip (around lsft \ )
+    und (around lsft -)
+)
+
+(deflayer qwerty
+  grv  1         2         3         4         5         6         7         8         9         0         -         =         bspc
+  tab  q         w         e         r         t         y         u         i         o         p         [         ]         \
+  caps a         @met_s    @ctl_d    @sft_f    g         h         @sft_j    @ctl_k    @met_l    @alt_;    '         ret                 
+  lsft z         x         c         v         b         n         m         ,         .         /         rsft                 up
+  lctl fn        lalt                          @space_layer                  ralt      rmet      cmp       rctl      left      down right
+)
+
+(deflayer extra
+  grv  1         2         3         4         5         6         7         8         9         0         -         =         bspc
+  tab  esc       grv       @tilda    tab       @btab     lp        u         @pip      \         bspc      [         ]         \
+  caps lalt      lmet      lctl      lsft      g         left      down      up        right     ret       '         ret                 
+  lsft @t_z1     x         c         v         b         n         m         ,         .         /         rsft                 up
+  lctl fn        lalt                          @space_layer                  ralt      rmet      cmp       rctl      left      down right
+)
+
+(deflayer numbers
+  grv  1      2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  1      2    3    4    5    6    7    8    9    0    -    =    \
+  caps !      @    #    $    %    ^    &    *    \(   \)   @und +              
+  lsft @t_z2  x    c    v    b    n    m    ,    .    /    rsft       up
+  lctl fn     lalt           spc            ralt rmet cmp  rctl left down right
+)
