@@ -32,6 +32,7 @@
     und (around lsft -)
     eur (around (around lsft lalt) 2)
     lock (around (around rmet rctl) q)
+    ss (around (around (around lsft lmet) lctl) 4)
 )
 
 (deflayer qwerty
@@ -46,7 +47,7 @@
   grv  1         2         3         4         5         6         7         8         9         0         -         =         bspc
   tab  esc       grv       @tilda    tab       @btab     lp        u         @pip      \         bspc      [         ]         \
   caps lalt      lmet      lctl      lsft      g         left      down      up        right     ret       '         ret                 
-  lsft @t_z1     x         c         v         b         n         m         ,         .         /         rsft                 up
+  lsft @t_z1     @ss       c         v         b         n         m         ,         .         /         rsft                 up
   lctl fn        lalt                          @space_layer                  ralt      rmet      cmp       rctl      left      @lock  right
 )
 
