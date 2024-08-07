@@ -26,10 +26,7 @@
     space_layer (tap-hold-next-release 250 spc (around (tap-macro-release (layer-rem numbers)) (layer-toggle extra)))
     t_z1 (layer-add numbers)
     t_z2 (layer-rem numbers)
-    clear (around (layer-rem extra) (layer-rem numbers))
-    tilda (around lsft grv)
     btab (around lsft tab)
-    pip (around lsft \ )
     und (around lsft -)
     eur (around (around lsft lalt) 2)
 )
@@ -46,7 +43,7 @@
 (deflayer extra
   esc  f1    f2   f3      f4   f5       f6    f7    f8      f9       f10   f11  f12        ssrq slck pause
   grv  1     2    3       4    5        6     7     8       9        0     -    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
-  tab  esc   grv  @tilda  tab  @btab    y     u     @pip    \        bspc  [    ]    \     del  end  pgdn  kp7  kp8  kp9  kp+
+  tab  esc   grv  ~       tab  @btab    y     u     |       \        bspc  [    ]    \     del  end  pgdn  kp7  kp8  kp9  kp+
   caps lalt  lmet lctl    lsft g        left  down  up      right    ret   '    ret                        kp4  kp5  kp6
   lsft @t_z1 x    c       v    b        [     ]     {       }        /    rsft                 up         kp1  kp2  kp3  kprt
   lctl lmet  lalt                  spc              ralt    rmet     cmp  rctl            left down rght  kp0  kp.
