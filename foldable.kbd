@@ -52,6 +52,6 @@
   grv  1      2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  1      2    3    4    5    6    7    8    9    0    -    =    \
   caps !      @    #    $    %    ^    &    *    \(   \)   @und +              
-  lsft @t_z2  x    c    @eur b    [    ]    {    }    /    rsft       up
+  lsft @t_z2  x    c    @eur b    n    m    ,    .    /    rsft       up
   lctl fn     lalt           spc            ralt rmet cmp  rctl left down right
 )
