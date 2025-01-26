@@ -1,0 +1,59 @@
+(defcfg
+  input (iokit-name "Apple Internal Keyboard / Trackpad")
+  output (kext)
+)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  lp   1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    ret
+  caps a    s    d    f    g    h    j    k    l    ;    '    \
+  lsft grv  z    x    c    v    b    n    m    ,    .    /    rsft                  up
+  fn   lctl lalt lmet           spc                 rmet ralt cmp  rctl       left down rght
+)
+
+(defalias
+    alt_a (tap-hold-next-release 250 a lalt)
+    met_s (tap-hold-next-release 250 s lmet)
+    ctl_d (tap-hold-next-release 250 d lctl)
+    sft_f (tap-hold-next-release 250 f lsft)
+
+    sft_j (tap-hold-next-release 250 j rsft)
+    ctl_k (tap-hold-next-release 250 k rctl)
+    met_l (tap-hold-next-release 250 l rmet)
+    alt_; (tap-hold-next-release 250 ; lalt)
+
+    space_layer (tap-hold-next-release 250 spc (around (tap-macro-release (layer-rem numbers)) (layer-toggle extra)))
+    t_z1 (layer-add numbers)
+    t_z2 (layer-rem numbers)
+    btab (around lsft tab)
+    und (around lsft -)
+    eur (around (around lsft lalt) 2)
+)
+
+(deflayer qwerty
+  esc  f1        f2        f3        f4        f5        f6        f7        f8        f9        f10       f11           f12
+  lp   1         2         3         4         5         6         7         8         9         0         -      =      bspc
+  tab  q         w         e         r         t         y         u         i         o         p         [      ]      ret
+  caps a         @met_s    @ctl_d    @sft_f    g         h         @sft_j    @ctl_k    @met_l    @alt_;    '      \
+  lsft grv       z         x         c         v         b         n         m         ,         .         /      rsft                    up
+  fn   lctl lalt      lmet                          @space_layer                                 rmet      ralt   cmp    rctl       left down rght
+)
+
+(deflayer extra
+  esc  f1        f2        f3        f4        f5        f6        f7        f8        f9        f10       f11           f12
+  lp   1         2         3         4         5         6         7         8         9         0         -      =      bspc
+  tab  esc       grv       ~         tab       @btab     lp        u         |         \         bspc      [      ]      ret
+  caps lalt      lmet      lctl      lsft      g         left      down      up        right     ret       '      \
+  lsft grv       @t_z1     x         c         v         b         [         ]         {         }         /      rsft                    up
+  fn   lctl lalt      lmet                          @space_layer                                 rmet      ralt   cmp    rctl       left down rght
+)
+
+(deflayer numbers
+  esc  f1        f2        f3        f4        f5        f6        f7        f8        f9        f10       f11           f12
+  lp   1    2      3    4    5    6    7    8    9    0    -    =    bspc
+  tab  1    2      3    4    5    6    7    8    9    0    -    =    ret
+  caps !    @      #    $    %    ^    &    *    \(   \)   @und +
+  lsft grv  @t_z2  x    c    @eur b    n    m    ,    .    /    rsft                  up
+  fn   lctl lalt   lmet           spc                 rmet ralt cmp  rctl       left down rght
+)
